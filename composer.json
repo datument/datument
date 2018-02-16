@@ -1,0 +1,20 @@
+{
+    "name": "datument/datument",
+    "description": "A PHP ORM.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Fenzland",
+            "email": "uukoo@163.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Datument\\": "src/"
+        }
+    }
+}
