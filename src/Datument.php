@@ -39,4 +39,51 @@ class Datument
 		return $model;
 	}
 
+	/**
+	 * Static method registerStorage
+	 *
+	 * @static
+	 * @access public
+	 *
+	 * @param  string $name
+	 * @param  IStorage $storage
+	 *
+	 * @return void
+	 */
+	static public function registerStorage( string$name, IStorage$storage ):viod
+	{
+		if( isset( self::$storages[$name] ) )
+			throw new \Exception();
+
+		self::$storages[$name]= $storage;
+	}
+
+	/**
+	 * Static method getStorage
+	 *
+	 * @static
+	 * @access public
+	 *
+	 * @param  mixed $name
+	 *
+	 * @return IStorage
+	 */
+	static public function getStorage( $name ):IStorage
+	{
+		if(!(  isset( self::$storages[$name] ) ) )
+			throw new \Exception();
+
+		return self::$storages[$name];
+	}
+
+	/**
+	 * Var storages
+	 *
+	 * @static
+	 * @access protected
+	 *
+	 * @var    array
+	 */
+	static protected $storages= [];
+
 }
