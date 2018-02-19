@@ -6,19 +6,20 @@ namespace Datument;
 
 ////////////////////////////////////////////////////////////////
 
-class Set
+interface IStorage
 {
 
 	/**
-	 * var_dump the set.
+	 * Method query
+	 *
+	 * @abstract
 	 *
 	 * @access public
 	 *
-	 * @return array
+	 * @param  Query $query
+	 *
+	 * @return ResultSet
 	 */
-	public function __debugInfo():array
-	{
-		#
-	}
+	function query( Querier\Query$query ):ResultSet;
 
 }

@@ -10,11 +10,24 @@
         }
     ],
     "require": {
-        "php": ">=7.1"
+        "php": ">=7.1",
+        "fenzland/cli": "dev-master",
+        "fenzland/php-helpers": "^1.4"
     },
     "autoload": {
         "psr-4": {
             "Datument\\": "src/"
         }
+    },
+    "bin": [
+        "bin/datument"
+    ],
+    "scripts": {
+        "post-package-install": [
+            "Datument\\Composer::postInstall"
+        ],
+        "post-package-update": [
+            "Datument\\Composer::postUpdate"
+        ]
     }
 }

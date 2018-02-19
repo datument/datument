@@ -1,0 +1,52 @@
+#!/usr/bin/env php
+<?php
+
+/**
+ * Version check
+ */
+if( version_compare('7.1', PHP_VERSION, '>') )
+{
+	fwrite( STDERR , "PHP >=7.1 required." );
+	die( 1 );
+}
+
+/**
+ * OS check
+ */
+if( PHP_OS !== 'Linux' )
+{
+	fwrite( STDERR , "Linux required." );
+	die( 1 );
+}
+
+/**
+ * CLI check
+ */
+if( PHP_SAPI !== 'cli' )
+{
+	fwrite( STDERR , "This script must run in cli." );
+	die( 1 );
+}
+
+
+foreach(
+	[
+		__DIR__.'/../../../autoload.php',
+		__DIR__.'/../autoload.php',
+		__DIR__.'/vendor/autoload.php',
+	]
+	as
+	$loader_file
+)
+if( file_exists( $loader_file ) )
+{
+	require $loader_file;
+
+	define( 'PROJECT_DIR', dirname( $loader_file ).'/../' );
+
+	exit( Datument\Cli::run( $argc, $argv ) );
+}
+
+fwrite( STDERR , "Comporser required." );
+
+die( 1 );

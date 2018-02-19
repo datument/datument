@@ -1,0 +1,16 @@
+<?php
+
+return [
+
+	/**
+	 * Path to store migrations and other meta data.
+	 */
+	'storage_path'=> 'datument',
+
+	/**
+	 * PHP language style.
+	 *
+	 * Valid values are 'default', 'psr-2'.
+	 */
+	'style'=> 'default',
+];
