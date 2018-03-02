@@ -24,7 +24,7 @@ class Cli
 	 */
 	static public function run( int$argc, array$argv ):int
 	{
-		return static::makeApp()->run( $argc, $argv );
+		return static::makeApp()->run( $argv );
 	}
 
 	/**
@@ -36,7 +36,6 @@ class Cli
 	 * @var    array
 	 */
 	static protected $commands= [
-		'confgen'=>  Cli\ConfigGenerate::class,
 		'diff'=>     Cli\Diff::class,
 		'migrate'=>  Cli\Migrate::class,
 		'add'=>      Cli\Add::class,

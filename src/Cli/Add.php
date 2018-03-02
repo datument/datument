@@ -14,9 +14,12 @@ class Add extends ACommand
 	 *
 	 * @access public
 	 *
+	 * @param  IArgs $args
+	 *
 	 * @return int
+	 * @throws \Throwable
 	 */
-	public function run():int
+	public function main( IArgs$args ):int
 	{
 		[ $namespace, $additions, ]= $this->params()->firstOthers();
 
